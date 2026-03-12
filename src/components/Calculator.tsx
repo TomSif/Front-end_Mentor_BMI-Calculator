@@ -1,4 +1,5 @@
 import { useState } from "react";
+import InputField from "./InputField";
 
 function Calculator() {
   const [unity, setUnity] = useState<"metric" | "imperial">("metric");
@@ -68,7 +69,18 @@ function Calculator() {
 
     return { min, max };
   }
-  const range = height > 0 ? getHealthyWeightRange(height) : null;
+  const range =
+    unity === "metric"
+      ? getHealthyWeightRange(height)
+      : getHealthyWeightRange(
+          convertToMetric(feet, inches, stones, lbs).height,
+        );
+
+  function convertRangeToImperial(kg: number) {
+    const st = Math.floor(kg / 6.35);
+    const lb = Math.round((kg / 6.35 - st) * 14);
+    return { st, lb };
+  }
 
   return (
     <div className="bg-white w-full rounded-2xl z-10 flex flex-col px-8 py-8 gap-8 lg:max-w-141">
@@ -118,123 +130,111 @@ function Calculator() {
             </label>
           </div>
           {unity === "metric" ? (
-            <div className="col-span-2 grid cols-2 gap-8 w-full">
+            <div className="col-span-2 grid grid-cols-2 gap-8 w-full">
               <div className="flex flex-col w-full col-start-1">
                 <label htmlFor="height">Height</label>
-                <input
-                  className="bg-white"
-                  type="number"
-                  min="0"
-                  max="300"
-                  id="height"
+                <InputField
                   name="height"
                   value={height}
+                  unit="cm"
                   onChange={(e) => {
                     setHeight(Number(e.target.value));
                   }}
-                  onFocus={(e) => e.target.select()}
                 />
               </div>
               <div className="flex flex-col w-full col-start-2">
                 <label htmlFor="weight">Weight</label>
-                <input
-                  className="bg-white"
-                  type="number"
-                  min="0"
-                  max="300"
-                  id="weight"
+                <InputField
                   name="weight"
                   value={weight}
+                  unit="kg"
                   onChange={(e) => {
                     setWeight(Number(e.target.value));
                   }}
-                  onFocus={(e) => e.target.select()}
                 />
               </div>
             </div>
           ) : (
-            <div className="col-span-2 grid cols-2  w-full">
+            <div className="col-span-2 grid grid-cols-2  w-full">
               <label className="col-span-2" htmlFor="feet">
                 Height
               </label>
-              <div className="col-span-2 grid cols-2 gap-8 w-full">
-                <input
-                  className="col-start-1"
-                  type="number"
-                  min="0"
-                  max="300"
-                  id="feet"
+              <div className="col-span-2 grid grid-cols-2 gap-8 w-full">
+                <InputField
                   name="feet"
                   value={feet}
+                  unit="ft"
                   onChange={(e) => {
                     setFeet(Number(e.target.value));
                   }}
-                  onFocus={(e) => e.target.select()}
                 />
-                <input
-                  className="col-start-2"
-                  type="number"
-                  min="0"
-                  max="300"
-                  id="inches"
+                <InputField
                   name="inches"
                   value={inches}
+                  unit="in"
                   onChange={(e) => {
                     setInches(Number(e.target.value));
                   }}
-                  onFocus={(e) => e.target.select()}
                 />
               </div>
-              <div className="col-span-2 grid cols-2  w-full">
+              <div className="col-span-2 grid grid-cols-2  w-full">
                 <label className="col-span-2" htmlFor="stones">
                   Weight
                 </label>
-                <div className="col-span-2 grid cols-2 gap-8 w-full">
-                  <input
-                    className="col-start-1"
-                    type="number"
-                    min="0"
-                    max="300"
-                    id="stones"
+                <div className="col-span-2 grid grid-cols-2 gap-8 w-full">
+                  <InputField
                     name="stones"
                     value={stones}
+                    unit="st"
                     onChange={(e) => {
                       setStones(Number(e.target.value));
                     }}
-                    onFocus={(e) => e.target.select()}
                   />
-                  <input
-                    className="col-start-2"
-                    type="number"
-                    min="0"
-                    max="300"
-                    id="lbs"
+                  <InputField
                     name="lbs"
                     value={lbs}
+                    unit="lbs"
                     onChange={(e) => {
                       setLbs(Number(e.target.value));
                     }}
-                    onFocus={(e) => e.target.select()}
                   />
                 </div>
               </div>
             </div>
           )}
         </fieldset>
-        <div className="flex justify-between w-full">
-          <div className="flex flex-col">
-            <p>{bmi ? bmi.toFixed(2) : ""}</p>
-            <p>{bmi ? getBMICategory(bmi) : ""}</p>
-          </div>
-          <div>
-            <p>
-              Your BMI suggests you’re a healthy weight. Your ideal weight is
-              between
-              <strong>
-                {range?.min.toFixed(1)} kgs - {range?.max.toFixed(1)} kgs
-              </strong>
-            </p>
-          </div>
+        <div className="flex flex-col w-full p-8 bg-blue-500 text-white gap-8">
+          {bmi === 0 ? (
+            <div className="flex flex-col w-full">
+              <p className="text-preset-4">Welcome!</p>
+              <p className="text-preset-7-regular">
+                Enter your height and weight and you’ll see your BMI result here
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 w-full gap-8">
+              <div className="flex flex-col col-start-1">
+                <p>Your BMI is...</p>
+                <p>{bmi.toFixed(2)}</p>
+              </div>
+              <p>
+                Your BMI suggests you’re a {getBMICategory(bmi)}. Your ideal
+                weight is between{" "}
+                {unity === "metric" ? (
+                  <strong>
+                    {range?.min.toFixed(1)} kgs - {range?.max.toFixed(1)} kgs
+                  </strong>
+                ) : (
+                  <strong>
+                    {convertRangeToImperial(range.min).st}st{" "}
+                    {convertRangeToImperial(range.min).lb}lbs{" - "}
+                    {convertRangeToImperial(range.max).st}st{" "}
+                    {convertRangeToImperial(range.max).lb}lbs
+                  </strong>
+                )}
+              </p>
+            </div>
+          )}
         </div>
       </form>
     </div>
