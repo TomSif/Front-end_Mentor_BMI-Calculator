@@ -71,13 +71,15 @@ function Calculator() {
   const range = height > 0 ? getHealthyWeightRange(height) : null;
 
   return (
-    <div className="bg-grey-500 w-54 h-54">
+    <div className="bg-white w-full rounded-2xl z-10 flex flex-col px-8 py-8 gap-8 lg:max-w-141">
       <form>
-        <fieldset>
-          <legend>Enter your details below</legend>
-          <div className="flex w-full">
-            <label htmlFor="metric">Metric</label>
+        <fieldset className="grid grid-cols-2 gap-8">
+          <legend className="text-preset-4 text-blue-900 col-span-2">
+            Enter your details below
+          </legend>
+          <div className="flex items-center gap-3 col-start-1 row-start-1">
             <input
+              className="col-start-1"
               checked={unity === "metric"}
               type="radio"
               id="metric"
@@ -88,8 +90,16 @@ function Calculator() {
                 resetStates();
               }}
             />
-            <label htmlFor="imperial">Imperial</label>
+            <label
+              className="text-preset-6-bold text-blue-900 col-start-1"
+              htmlFor="metric"
+            >
+              Metric
+            </label>
+          </div>
+          <div className="flex items-center gap-3 col-start-2 row-start-1">
             <input
+              className="col-start-2"
               checked={unity === "imperial"}
               type="radio"
               id="imperial"
@@ -100,10 +110,16 @@ function Calculator() {
                 resetStates();
               }}
             />
+            <label
+              className="text-preset-6-bold text-blue-900 col-start-2"
+              htmlFor="imperial"
+            >
+              Imperial
+            </label>
           </div>
           {unity === "metric" ? (
-            <div className="flex">
-              <div className="flex flex-col w-full">
+            <div className="col-span-2 grid cols-2 gap-8 w-full">
+              <div className="flex flex-col w-full col-start-1">
                 <label htmlFor="height">Height</label>
                 <input
                   className="bg-white"
@@ -119,7 +135,7 @@ function Calculator() {
                   onFocus={(e) => e.target.select()}
                 />
               </div>
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col w-full col-start-2">
                 <label htmlFor="weight">Weight</label>
                 <input
                   className="bg-white"
@@ -137,10 +153,13 @@ function Calculator() {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col w-full">
-              <label htmlFor="feet">Height</label>
-              <div className="flex w-full">
+            <div className="col-span-2 grid cols-2  w-full">
+              <label className="col-span-2" htmlFor="feet">
+                Height
+              </label>
+              <div className="col-span-2 grid cols-2 gap-8 w-full">
                 <input
+                  className="col-start-1"
                   type="number"
                   min="0"
                   max="300"
@@ -153,6 +172,7 @@ function Calculator() {
                   onFocus={(e) => e.target.select()}
                 />
                 <input
+                  className="col-start-2"
                   type="number"
                   min="0"
                   max="300"
@@ -165,32 +185,38 @@ function Calculator() {
                   onFocus={(e) => e.target.select()}
                 />
               </div>
-              <label htmlFor="stones">Weight</label>
-              <div className="flex w-full ">
-                <input
-                  type="number"
-                  min="0"
-                  max="300"
-                  id="stones"
-                  name="stones"
-                  value={stones}
-                  onChange={(e) => {
-                    setStones(Number(e.target.value));
-                  }}
-                  onFocus={(e) => e.target.select()}
-                />
-                <input
-                  type="number"
-                  min="0"
-                  max="300"
-                  id="lbs"
-                  name="lbs"
-                  value={lbs}
-                  onChange={(e) => {
-                    setLbs(Number(e.target.value));
-                  }}
-                  onFocus={(e) => e.target.select()}
-                />
+              <div className="col-span-2 grid cols-2  w-full">
+                <label className="col-span-2" htmlFor="stones">
+                  Weight
+                </label>
+                <div className="col-span-2 grid cols-2 gap-8 w-full">
+                  <input
+                    className="col-start-1"
+                    type="number"
+                    min="0"
+                    max="300"
+                    id="stones"
+                    name="stones"
+                    value={stones}
+                    onChange={(e) => {
+                      setStones(Number(e.target.value));
+                    }}
+                    onFocus={(e) => e.target.select()}
+                  />
+                  <input
+                    className="col-start-2"
+                    type="number"
+                    min="0"
+                    max="300"
+                    id="lbs"
+                    name="lbs"
+                    value={lbs}
+                    onChange={(e) => {
+                      setLbs(Number(e.target.value));
+                    }}
+                    onFocus={(e) => e.target.select()}
+                  />
+                </div>
               </div>
             </div>
           )}
