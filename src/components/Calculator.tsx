@@ -84,9 +84,9 @@ function Calculator() {
 
   return (
     <div className="bg-white w-full rounded-2xl z-10 flex flex-col px-8 py-8 gap-8 lg:max-w-141">
-      <form>
+      <form className="flex flex-col w-full gap-8">
         <fieldset className="grid grid-cols-2 gap-8">
-          <legend className="text-preset-4 text-blue-900 col-span-2">
+          <legend className="text-preset-4 text-blue-900 col-span-2 mb-8">
             Enter your details below
           </legend>
           <div className="flex items-center gap-3 col-start-1 row-start-1">
@@ -155,27 +155,29 @@ function Calculator() {
               </div>
             </div>
           ) : (
-            <div className="col-span-2 grid grid-cols-2  w-full">
-              <label className="col-span-2" htmlFor="feet">
-                Height
-              </label>
-              <div className="col-span-2 grid grid-cols-2 gap-8 w-full">
-                <InputField
-                  name="feet"
-                  value={feet}
-                  unit="ft"
-                  onChange={(e) => {
-                    setFeet(Number(e.target.value));
-                  }}
-                />
-                <InputField
-                  name="inches"
-                  value={inches}
-                  unit="in"
-                  onChange={(e) => {
-                    setInches(Number(e.target.value));
-                  }}
-                />
+            <div className="col-span-2 grid grid-cols-2  w-full gap-6">
+              <div className="col-span-2">
+                <label className="col-span-2" htmlFor="feet">
+                  Height
+                </label>
+                <div className="col-span-2 grid grid-cols-2 gap-8 w-full">
+                  <InputField
+                    name="feet"
+                    value={feet}
+                    unit="ft"
+                    onChange={(e) => {
+                      setFeet(Number(e.target.value));
+                    }}
+                  />
+                  <InputField
+                    name="inches"
+                    value={inches}
+                    unit="in"
+                    onChange={(e) => {
+                      setInches(Number(e.target.value));
+                    }}
+                  />
+                </div>
               </div>
               <div className="col-span-2 grid grid-cols-2  w-full">
                 <label className="col-span-2" htmlFor="stones">
@@ -203,9 +205,9 @@ function Calculator() {
             </div>
           )}
         </fieldset>
-        <div className="flex flex-col w-full p-8 bg-blue-500 text-white gap-8">
+        <div className="flex flex-col w-full p-8 bg-blue-500 text-white gap-8 rounded-3xl rounded-r-[10rem]">
           {bmi === 0 ? (
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-full gap-4">
               <p className="text-preset-4">Welcome!</p>
               <p className="text-preset-7-regular">
                 Enter your height and weight and you’ll see your BMI result here
