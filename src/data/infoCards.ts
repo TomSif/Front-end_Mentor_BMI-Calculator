@@ -14,7 +14,6 @@ export const infoCardsData: infoCardsDataProps[] = [
     description:
       "Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.",
     icon: "/images/icon-eating.svg",
-    iconBg: "#FCDDED",
     isIconResponsive: true,
   },
   {
@@ -23,7 +22,6 @@ export const infoCardsData: infoCardsDataProps[] = [
     description:
       "Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity.",
     icon: "/images/icon-exercise.svg",
-    iconBg: "#FDEFE1",
     isIconResponsive: true,
   },
   {
@@ -32,7 +30,6 @@ export const infoCardsData: infoCardsDataProps[] = [
     description:
       "Sleep enhances mental clarity, emotional stability, and physical wellness, promoting overall restoration and rejuvenation.",
     icon: "/images/icon-sleep.svg",
-    iconBg: "#DDF6F6",
     isIconResponsive: true,
   },
   {

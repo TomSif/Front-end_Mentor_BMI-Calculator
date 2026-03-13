@@ -9,7 +9,7 @@ function App() {
       <main className="gradient-1 flex flex-col items-center">
         <section>
           <div>
-            <ul className="flex flex-col">
+            <ul className="flex flex-col lg:flex-row">
               {infoCardsData
                 .filter((card) => card.isIconResponsive)
                 .map((card) => (
@@ -19,9 +19,7 @@ function App() {
                     title={card.title}
                     description={card.description}
                     icon={card.icon}
-                    iconBg={card.iconBg}
                     isIconResponsive={card.isIconResponsive}
-                    variant="col"
                   />
                 ))}
             </ul>
