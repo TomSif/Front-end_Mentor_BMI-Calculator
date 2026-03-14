@@ -60,10 +60,10 @@ function App() {
               may not be beneficial to use.
             </p>
           </div>
-          <ul className=" grid grid-cols-4 lg:grid-cols-10 lg:grid-rows-3 gap-4 lg:gap-8 justify-items-center lg:justify-end lg:ml-47.5">
+          <ul className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-6 lg:ml-47.5">
             {infoCardsData
               .filter((card) => !card.isIconResponsive)
-              .map((card) => (
+              .map((card, index) => (
                 <InfoCard
                   id={card.id}
                   key={card.id}
@@ -71,12 +71,12 @@ function App() {
                   description={card.description}
                   icon={card.icon}
                   isIconResponsive={card.isIconResponsive}
-                  className="col-span-2 last:col-span-2 last:col-start-2 lg:col-span-4 lg:first:row-start-1 lg:first:col-start-6 lg:row-start-2 lg:last:row-start-3 
-                  lg:nth-of-type-[4]:row-start-3 
-                  lg:nth-of-type-[4]:col-start-1 
-                  lg:last:col-span-4 
-                  lg:nth-of-type-[2]:col-start-3
-                  lg:nth-of-type-[3]:col-start-7"
+                  className={`lg:col-span-2
+                  ${index === 0 ? "lg:col-start-4" : ""}
+                  ${index === 1 ? "lg:col-start-3" : ""}
+                  ${index === 3 ? "lg:col-start-1" : ""}
+                  ${index === 4 ? "md:col-span-2 md:justify-self-center md:max-w-[calc(50%-0.5rem)] lg:max-w-none" : ""}
+                  `}
                 />
               ))}
           </ul>
