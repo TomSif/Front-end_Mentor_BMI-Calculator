@@ -27,6 +27,7 @@
   --color-grey-300: #acc1de;
   --color-grey-500: #5e6e85;
   --color-blue-100: #e1e7fe;
+  --color-blue-200: #e7f5fe;
   --color-blue-300: #b3d3f1;
   --color-blue-500: #345ff6;
   --color-blue-900: #253347;
@@ -104,4 +105,8 @@
     rgba(214, 252, 254, 0) 0%,
     #d6e6fe 100%
   );
+}
+/* Box Shadow Collection */
+@utility box-shadow-1 {
+  box-shadow: 16px 32px 56px rgba(143, 174, 207, 0.25);
 }
