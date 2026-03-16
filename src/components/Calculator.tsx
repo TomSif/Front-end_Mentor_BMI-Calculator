@@ -84,14 +84,14 @@ function Calculator() {
 
   return (
     <div className="bg-white w-full rounded-2xl z-10 flex flex-col px-8 py-8 gap-8 lg:max-w-141 box-shadow-1">
-      <form className="flex flex-col w-full gap-8">
+      <div className="flex flex-col w-full gap-8">
         <fieldset className="grid grid-cols-2 gap-8">
           <legend className="text-preset-4 text-blue-900 col-span-2 mb-8">
             Enter your details below
           </legend>
           <div className="flex items-center gap-4 col-start-1 row-start-1">
             <input
-              className="col-start-1 appearance-none  h-8 w-8 checked:w-3.75 checked:h-3.75 transform checked:translate-x-2.25 checked:mr-4.25 hover:border-blue-500 rounded-full border
+              className="col-start-1 appearance-none  h-8 w-8 checked:w-3.75 checked:h-3.75 transdiv checked:translate-x-2.25 checked:mr-4.25 hover:border-blue-500 rounded-full border
                       border-grey-500 checked:border-blue-500 checked:bg-blue-500 checked:ring-8 checked:ring-blue-200 "
               checked={unity === "metric"}
               type="radio"
@@ -232,7 +232,11 @@ function Calculator() {
               </p>
             </div>
           ) : (
-            <div className="flex flex-col md:grid grid-cols-2 items-start md:items-center w-full gap-6">
+            <div
+              role="status"
+              aria-live="polite"
+              className="flex flex-col md:grid grid-cols-2 items-start md:items-center w-full gap-6"
+            >
               <div className="flex flex-col col-start-1 text-white text-left">
                 <p className="text-preset-6-regular mb-1">Your BMI is...</p>
                 <p className="text-preset-2 lg:text-preset-1">
@@ -258,7 +262,7 @@ function Calculator() {
             </div>
           )}
         </div>
-      </form>
+      </div>
     </div>
   );
 }
