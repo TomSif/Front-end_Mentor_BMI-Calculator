@@ -14,13 +14,14 @@ function InputField({ name, value, unit, onChange }: InputFieldProps) {
         type="number"
         min="0"
         max="300"
-        id={`${name}-unit`}
+        id={`${name}`}
         name={name}
         value={value}
         onChange={onChange}
         onFocus={(e) => e.target.select()}
       />
       <span
+        id={`${name}-unit`}
         aria-describedby={`${name}-unit`}
         className="absolute text-blue-500 text-preset-4 right-6 top-1/2 -translate-y-1/2"
       >

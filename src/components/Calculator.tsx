@@ -36,7 +36,7 @@ function Calculator() {
         return weight / ((height / 100) * (height / 100));
       } else return 0;
     } else {
-      if (feet > 0 && stones > 0) {
+      if (feet > 0 || (inches > 0 && stones > 0) || lbs > 0) {
         const { height: h, weight: w } = convertToMetric(
           feet,
           inches,
@@ -54,8 +54,8 @@ function Calculator() {
     let category = "";
     if (bmi) {
       if (bmi < 18.5) category = "Underweight";
-      if (bmi >= 18.5 && bmi < 24.9) category = "Healthy weight";
-      if (bmi >= 25 && bmi < 29.9) category = "Overweight";
+      if (bmi >= 18.5 && bmi < 25) category = "Healthy weight";
+      if (bmi >= 25 && bmi < 30) category = "Overweight";
       if (bmi >= 30) category = "Obese";
       return category;
     } else {
@@ -136,7 +136,7 @@ function Calculator() {
               <div className="flex flex-col w-full col-start-1">
                 <label
                   className="text-grey-500 text-preset-7-regular mb-2"
-                  htmlFor="height-unit"
+                  htmlFor="height"
                 >
                   Height
                 </label>
@@ -152,7 +152,7 @@ function Calculator() {
               <div className="flex flex-col w-full col-start-2">
                 <label
                   className="text-grey-500 text-preset-7-regular mb-2"
-                  htmlFor="weight-unit"
+                  htmlFor="weight"
                 >
                   Weight
                 </label>
@@ -171,7 +171,7 @@ function Calculator() {
               <div className="col-span-2">
                 <label
                   className="col-span-2 text-grey-500 text-preset-7-regular  "
-                  htmlFor="feet-unit"
+                  htmlFor="feet"
                 >
                   Height
                 </label>
@@ -197,7 +197,7 @@ function Calculator() {
               <div className="col-span-2 grid grid-cols-2  w-full">
                 <label
                   className="col-span-2 text-grey-500 text-preset-7-regular mb-2 "
-                  htmlFor="stones-unit"
+                  htmlFor="stones"
                 >
                   Weight
                 </label>
