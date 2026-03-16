@@ -83,15 +83,16 @@ function Calculator() {
   }
 
   return (
-    <div className="bg-white w-full rounded-2xl z-10 flex flex-col px-8 py-8 gap-8 lg:max-w-141">
+    <div className="bg-white w-full rounded-2xl z-10 flex flex-col px-8 py-8 gap-8 lg:max-w-141 box-shadow-1">
       <form className="flex flex-col w-full gap-8">
         <fieldset className="grid grid-cols-2 gap-8">
           <legend className="text-preset-4 text-blue-900 col-span-2 mb-8">
             Enter your details below
           </legend>
-          <div className="flex items-center gap-3 col-start-1 row-start-1">
+          <div className="flex items-center gap-4 col-start-1 row-start-1">
             <input
-              className="col-start-1"
+              className="col-start-1 appearance-none  h-8 w-8 checked:w-3.75 checked:h-3.75 transform checked:translate-x-2.25 checked:mr-4.25 hover:border-blue-500 rounded-full border
+                      border-grey-500 checked:border-blue-500 checked:bg-blue-500 checked:ring-8 checked:ring-blue-200 "
               checked={unity === "metric"}
               type="radio"
               id="metric"
@@ -109,9 +110,10 @@ function Calculator() {
               Metric
             </label>
           </div>
-          <div className="flex items-center gap-3 col-start-2 row-start-1">
+          <div className="flex items-center gap-4 col-start-2 row-start-1">
             <input
-              className="col-start-2"
+              className="col-start-2 appearance-none  h-8 w-8 checked:w-3.75 checked:h-3.75 transform checked:translate-x-2.25 checked:mr-4.25 hover:border-blue-500 rounded-full border
+                      border-grey-500 checked:border-blue-500 checked:bg-blue-500 checked:ring-8 checked:ring-blue-200"
               checked={unity === "imperial"}
               type="radio"
               id="imperial"
@@ -130,9 +132,14 @@ function Calculator() {
             </label>
           </div>
           {unity === "metric" ? (
-            <div className="col-span-2 grid grid-cols-2 gap-8 w-full">
+            <div className="flex flex-col col-span-2 md:grid md:grid-cols-2 gap-8 w-full">
               <div className="flex flex-col w-full col-start-1">
-                <label htmlFor="height">Height</label>
+                <label
+                  className="text-grey-500 text-preset-7-regular mb-2"
+                  htmlFor="height"
+                >
+                  Height
+                </label>
                 <InputField
                   name="height"
                   value={height}
@@ -143,7 +150,12 @@ function Calculator() {
                 />
               </div>
               <div className="flex flex-col w-full col-start-2">
-                <label htmlFor="weight">Weight</label>
+                <label
+                  className="text-grey-500 text-preset-7-regular mb-2"
+                  htmlFor="weight"
+                >
+                  Weight
+                </label>
                 <InputField
                   name="weight"
                   value={weight}
@@ -155,12 +167,15 @@ function Calculator() {
               </div>
             </div>
           ) : (
-            <div className="col-span-2 grid grid-cols-2  w-full gap-6">
+            <div className="col-span-2 grid grid-cols-2  w-full gap-4 lg:gap-8">
               <div className="col-span-2">
-                <label className="col-span-2" htmlFor="feet">
+                <label
+                  className="col-span-2 text-grey-500 text-preset-7-regular  "
+                  htmlFor="feet"
+                >
                   Height
                 </label>
-                <div className="col-span-2 grid grid-cols-2 gap-8 w-full">
+                <div className="col-span-2 grid grid-cols-2 gap-8 w-full mt-2">
                   <InputField
                     name="feet"
                     value={feet}
@@ -180,7 +195,10 @@ function Calculator() {
                 </div>
               </div>
               <div className="col-span-2 grid grid-cols-2  w-full">
-                <label className="col-span-2" htmlFor="stones">
+                <label
+                  className="col-span-2 text-grey-500 text-preset-7-regular mb-2 "
+                  htmlFor="stones"
+                >
                   Weight
                 </label>
                 <div className="col-span-2 grid grid-cols-2 gap-8 w-full">
@@ -205,7 +223,7 @@ function Calculator() {
             </div>
           )}
         </fieldset>
-        <div className="flex flex-col w-full p-8 bg-blue-500 text-white gap-8 rounded-3xl rounded-r-[10rem]">
+        <div className="flex flex-col w-full p-8 bg-blue-500 text-white gap-8 rounded-3xl md:rounded-r-[10rem]">
           {bmi === 0 ? (
             <div className="flex flex-col w-full gap-4">
               <p className="text-preset-4">Welcome!</p>
@@ -214,20 +232,22 @@ function Calculator() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 w-full gap-8">
-              <div className="flex flex-col col-start-1">
-                <p>Your BMI is...</p>
-                <p>{bmi.toFixed(2)}</p>
+            <div className="flex flex-col md:grid grid-cols-2 items-start md:items-center w-full gap-6">
+              <div className="flex flex-col col-start-1 text-white text-left">
+                <p className="text-preset-6-regular mb-1">Your BMI is...</p>
+                <p className="text-preset-2 lg:text-preset-1">
+                  {bmi.toFixed(2)}
+                </p>
               </div>
-              <p>
+              <p className="text-preset-7-regular">
                 Your BMI suggests you’re a {getBMICategory(bmi)}. Your ideal
                 weight is between{" "}
                 {unity === "metric" ? (
-                  <strong>
+                  <strong className="text-preset-7-bold">
                     {range?.min.toFixed(1)} kgs - {range?.max.toFixed(1)} kgs
                   </strong>
                 ) : (
-                  <strong>
+                  <strong className="text-preset-7-bold">
                     {convertRangeToImperial(range.min).st}st{" "}
                     {convertRangeToImperial(range.min).lb}lbs{" - "}
                     {convertRangeToImperial(range.max).st}st{" "}

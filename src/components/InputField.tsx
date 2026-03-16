@@ -10,7 +10,7 @@ function InputField({ name, value, unit, onChange }: InputFieldProps) {
     <div className="flex items-center w-full relative">
       <input
         aria-label={`input zone for ${name}`}
-        className="bg-white flex-1 px-6 py-6 lg:py-4 border-2 border-grey-500  focus:border-blue-500 text-preset-4 rounded-2xl text-grey-500"
+        className="bg-white flex-1 px-6 py-6 lg:py-4 border-2 border-grey-500  focus:border-blue-500 hover:border-blue-500 active:border-blue-500 hover:cursor-pointer focus:outline-none text-preset-4 rounded-2xl text-grey-500"
         type="number"
         min="0"
         max="300"
