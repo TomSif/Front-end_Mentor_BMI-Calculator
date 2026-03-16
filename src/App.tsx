@@ -7,7 +7,7 @@ function App() {
     <>
       <Header></Header>
       <main className=" flex flex-col items-center overflow-hidden mt-22 ">
-        <section className="w-full flex flex-col items-end justify-between md:flex-row gap-12 md:gap-16 lg:px-36  lg:pb-24.5 transform md:-translate-x-10 lg:tranlaste-x-0 relative lg:mt-13.5">
+        <section className="w-full flex flex-col items-end justify-between md:flex-row gap-12 md:gap-16 lg:px-36  lg:pb-24.5 transform md:-translate-x-10 lg:translate-x-0 relative lg:mt-13.5">
           <img
             className="hidden lg:flex absolute -top-13 right-43 w-21.25 h-50 z-10"
             src="/images/pattern-curved-line-left.svg"
