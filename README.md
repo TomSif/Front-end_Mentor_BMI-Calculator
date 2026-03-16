@@ -9,7 +9,7 @@
 [![Tailwind](https://img.shields.io/badge/tailwindcss_v4-0F172A?&logo=tailwindcss&logocolor=white)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-![Design preview for the Body Mass Index Calculator coding challenge]()
+![Design preview for the Body Mass Index Calculator coding challenge](public/images/screenshot-header-imp.png)
 
 ### 🌐 Live Demo:
 
@@ -51,7 +51,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop](/images/screen-desktop.png)
+![Desktop](/public/images/screen-desktop.png)
 
 ### Links
 
