@@ -136,7 +136,7 @@ function Calculator() {
               <div className="flex flex-col w-full col-start-1">
                 <label
                   className="text-grey-500 text-preset-7-regular mb-2"
-                  htmlFor="height"
+                  htmlFor="height-unit"
                 >
                   Height
                 </label>
@@ -152,7 +152,7 @@ function Calculator() {
               <div className="flex flex-col w-full col-start-2">
                 <label
                   className="text-grey-500 text-preset-7-regular mb-2"
-                  htmlFor="weight"
+                  htmlFor="weight-unit"
                 >
                   Weight
                 </label>
@@ -171,7 +171,7 @@ function Calculator() {
               <div className="col-span-2">
                 <label
                   className="col-span-2 text-grey-500 text-preset-7-regular  "
-                  htmlFor="feet"
+                  htmlFor="feet-unit"
                 >
                   Height
                 </label>
@@ -197,7 +197,7 @@ function Calculator() {
               <div className="col-span-2 grid grid-cols-2  w-full">
                 <label
                   className="col-span-2 text-grey-500 text-preset-7-regular mb-2 "
-                  htmlFor="stones"
+                  htmlFor="stones-unit"
                 >
                   Weight
                 </label>
