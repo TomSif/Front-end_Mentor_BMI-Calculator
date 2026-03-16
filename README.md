@@ -1,5 +1,3 @@
-# Frontend Mentor - Body Mass Index Calculator
-
 # BMI Calculator - Thomas Sifferle 🚀
 
 ![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)
@@ -11,13 +9,11 @@
 [![Tailwind](https://img.shields.io/badge/tailwindcss_v4-0F172A?&logo=tailwindcss&logocolor=white)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-<a href="#description-fr-">🇫🇷 README en Français</a> - <a href="#en-description">🇺🇸 English README</a>
-
 ![Design preview for the Body Mass Index Calculator coding challenge]()
 
 ### 🌐 Live Demo:
 
-**[View live site →]()**
+**[View live site →](https://front-endmentorbmi-calculator.vercel.app/)**
 
 Deployed on Vercel with HTTPS and performance optimizations.
 
@@ -55,12 +51,12 @@ Users should be able to:
 
 ### Screenshot
 
-![]()
+![Desktop](/images/screen-desktop.png)
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [Git-hub](https://github.com/TomSif/Front-end_Mentor_BMI-Calculator)
+- Live Site URL: [Vercel](https://front-endmentorbmi-calculator.vercel.app/)
 
 ## My process
 
@@ -111,16 +107,13 @@ const [unity, setUnity] = useState<"metric" | "imperial">("metric");
 
 This catches typos at compile time and provides better autocomplete in the IDE.
 
-#### Nullable state for empty inputs
+#### zero state for empty inputs
 
-Handling the difference between "user hasn't entered anything yet" and "user entered zero":
+Handling "user hasn't entered anything yet" :
 
 ```typescript
-const [height, setHeight] = useState<number | null>(null);
-const [weight, setWeight] = useState<number | null>(null);
-
-// In JSX: nullish coalescing to display empty string instead of null
-<input value={height ?? ""} />
+const [height, setHeight] = useState<number>(0);
+const [weight, setWeight] = useState<number>(0);
 ```
 
 #### The className forwarding pattern

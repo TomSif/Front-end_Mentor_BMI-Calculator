@@ -2,7 +2,7 @@ import Calculator from "./Calculator";
 
 function Header() {
   return (
-    <header className="flex flex-col items-center lg:items-start relative pt-8 px-6 md:pt-8 md:px-10 lg:pt-22 lg:px-36 ">
+    <header className="flex w-full flex-col items-center lg:items-start relative pt-8 px-6 md:pt-8 md:px-10 lg:pt-22 lg:px-36 ">
       <div className="flex items-center lg:justify-start w-[36.72px] h-[36.72] lg:w-[58.75px] lg:h-[58.75px] ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -17,8 +17,8 @@ function Header() {
           />
         </svg>
       </div>
-      <div className="gradient-1 w-full max-w-250 absolute top-0 left-0 z-0 h-full max-h-160 lg:max-h-184 rounded-br-[35px] lg:rounded-none"></div>
-      <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-10 lg:gap-8 mt-10 lg:mt-6 ">
+      <div className="gradient-1 w-full max-w-250 absolute top-0 left-0 z-0 h-full max-h-160 lg:max-h-184 rounded-br-[35px] "></div>
+      <div className="flex flex-col w-full lg:flex-row lg:justify-between items-center gap-10 lg:gap-8 mt-10 lg:mt-6 ">
         <div className="flex flex-col text-center lg:text-left gap-6 lg:gap-8 lg:py-18 z-10 w-full flex-1 lg:w-141">
           <h1 className="text-preset-2 text-blue-900 z-10">
             Body Mass
