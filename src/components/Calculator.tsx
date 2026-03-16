@@ -36,7 +36,7 @@ function Calculator() {
         return weight / ((height / 100) * (height / 100));
       } else return 0;
     } else {
-      if (feet > 0 || (inches > 0 && stones > 0) || lbs > 0) {
+      if ((feet > 0 || inches > 0) && (stones > 0 || lbs > 0)) {
         const { height: h, weight: w } = convertToMetric(
           feet,
           inches,
